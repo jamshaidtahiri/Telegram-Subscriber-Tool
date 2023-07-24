@@ -144,29 +144,37 @@ with connect_to_appium_server() as driver:
     el7.click()
     # el8 = driver.find_element(by=AppiumBy.XPATH, value="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout[3]/android.widget.FrameLayout/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[4]/android.widget.TextView[2]")
 
-    el8 = find_element(driver, AppiumBy.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout[3]/android.widget.FrameLayout/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[4]/android.widget.TextView[2]")
-
+    el8 = find_element(driver, AppiumBy.XPATH, "//android.widget.FrameLayout//android.widget.TextView[contains(@text, 'Add Members')]")
+# /android.widget.FrameLayout[3]/android.widget.TextView[1]
+    # Add Members
     el8.click()
     # el9 = driver.find_element(by=AppiumBy.XPATH, value="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout[3]/android.widget.FrameLayout[2]/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[1]/android.widget.TextView")
-    el9 = find_element(driver, AppiumBy.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout[3]/android.widget.FrameLayout[2]/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[1]/android.widget.TextView")
-
-    el9.click()
+#     el9 = find_element(driver, AppiumBy.XPATH, "android.widget.EditText")
+# # /hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout[3]/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.EditText
+#     el9.click()
     # el10 = driver.find_element(by=AppiumBy.CLASS_NAME, value="android.widget.EditText")
 
     el10 = find_element(driver, AppiumBy.CLASS_NAME, "android.widget.EditText")
 
     with open('usernames.csv', 'r', encoding='utf-8') as csvfile:
         reader = csv.DictReader(csvfile)
+        user_count = 0
         for row in reader:
-            username = row["username"].strip().lower()
-            
-            print(username) 
-            if username:
-                username = "@" + username
-                el10.send_keys(username)
-                el11 = driver.find_elements(by=AppiumBy.XPATH, value="//android.widget.FrameLayout//android.widget.TextView[2]")
-                exact_match_element = find_exact_match_username_element(el11, username.lower())
-                click_element(exact_match_element)
+            if user_count >= 198:
+                break
+            try:
+                username = row["username"].strip().lower()
+                print(username)
+                if username:
+                    username = "@" + username
+                    el10.send_keys(username)
+                    el11 = driver.find_elements(by=AppiumBy.XPATH, value="//android.widget.FrameLayout//android.widget.TextView[2]")
+                    exact_match_element = find_exact_match_username_element(el11, username.lower())
+                    click_element(exact_match_element)
+                    user_count += 1
+            except Exception as e:
+                print(f"Error adding user: {e}")
+           
 
     # el12 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Next")
     el12 = find_element(driver, AppiumBy.ACCESSIBILITY_ID, "Next")
