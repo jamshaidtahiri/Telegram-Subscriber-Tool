@@ -1,4 +1,5 @@
 # Telegram Subscriber Tool 🚀
+![Telegram Subscriber Tool](https://github.com/jamshaidtahiri/Telegram-Subscriber-Tool/blob/main/images/Telegram-Subscriber-Tool.jpg)
 
 ## Introduction
 This is a Python-based Telegram Subscriber Tool designed to simplify the process of adding subscribers to a Telegram channel. The tool utilizes the Appium Python Client v2 to interact with the Telegram app on an Android device. With Appium's capabilities, the script automatically starts the Appium server, removing the need for users to manually set it up.
