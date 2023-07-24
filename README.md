@@ -13,7 +13,9 @@ Before running the tool, make sure you have the following prerequisites installe
    pip install Appium-Python-Client
    ```
 
-3. Android Device: Connect an Android device to your computer with USB debugging enabled. Additionally, make sure the device has the Telegram app installed.
+3. Appium Server: The Appium server should also be installed on your machine to facilitate the interaction with the Android device. The tool will automatically start the Appium server in the background, so you don't need to set it up manually.
+
+4. Android Device: Connect an Android device to your computer with USB debugging enabled. Additionally, make sure the device has the Telegram app installed.
 
 ## Getting Started 🚀
 1. Clone the repository or download the provided script onto your machine.
@@ -26,7 +28,7 @@ Before running the tool, make sure you have the following prerequisites installe
    ```
 
 ## How it Works 🛠️
-1. Upon executing the script, it automatically starts the Appium server in the background.
+1. Upon executing the script, it automatically starts the Appium server in the background, so you don't need to worry about setting it up yourself.
 
 2. A GUI window will pop up, prompting you to enter the name of your Telegram channel.
 
@@ -49,5 +51,10 @@ Before running the tool, make sure you have the following prerequisites installe
 
 - The CSV file must be present in the same directory as the script, and the usernames should be listed under the "username" column.
 
+## Creating the Executable 📦
+I have already created an executable (`.exe`) file for you, so you don't need to do anything. The executable includes all the required dependencies, including the Appium-Python-Client, making it a standalone tool. You can simply run the `telegram_subscriber_tool.exe` file on your Windows machine without any additional setup.
+
 ## Conclusion 🎉
-The Telegram Subscriber Tool automates the process of adding subscribers to your Telegram channel, making it faster and more convenient. With the Appium server setup integrated into the script, users can now enjoy a hassle-free experience without worrying about the server's manual configuration. The tool simplifies the subscriber addition process, making it an ideal solution for Telegram channel administrators seeking to expand their audience effortlessly. Happy channel growth! 🚀🎊
+The Telegram Subscriber Tool automates the process of adding subscribers to your Telegram channel, making it faster and more convenient. With the integrated Appium server setup, you can now enjoy a hassle-free experience without worrying about any manual configurations. The tool simplifies the subscriber addition process, making it an ideal solution for Telegram channel administrators seeking to expand their audience effortlessly. Happy channel growth! 🚀🎊
+
+If you have any questions or need further assistance, feel free to ask!
